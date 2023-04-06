@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "nom": "image_1",
+        "image": "assets/images/slideshow/slide1.jpg"   
+    },
+    {
+        "id": "2",
+        "nom": "image_2",
+        "image": "assets/images/slideshow/slide2.jpg"   
+    },
+    {
+        "id": "3",
+        "nom": "image_3",
+        "image": "assets/images/slideshow/slide3.jpg"   
+    },
+    {
+        "id": "3",
+        "nom": "image_4",
+        "image": "assets/images/slideshow/slide4.jpg"   
+    }
+]

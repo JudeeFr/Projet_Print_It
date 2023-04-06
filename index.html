@@ -24,23 +24,8 @@
 <div id="slides-container">
 	<!-- Full-width images with caption text -->
 	<div id="banner">
-		<img class="banner-img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
-		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
-	</div>
-
-	<div id="banner">
-		<img class="banner-img" src="./assets/images/slideshow/slide2.jpg" alt="Banner Print-it">
-		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
-	</div>
-
-	<div id="banner">
-		<img class="banner-img" src="./assets/images/slideshow/slide3.jpg" alt="Banner Print-it">
-		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
-	</div>
-
-	<div id="banner">
-		<img class="banner-img" src="./assets/images/slideshow/slide4.png" alt="Banner Print-it">
-		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
+		<img id="banner-img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
+		<p id="banner-text">Impressions tous formats <span>en boutique et en ligne</span></p>
 	</div>
 
 	<!-- Next and previous buttons -->
@@ -50,10 +35,11 @@
 	</div>	
 
 	<!-- The dots/circles -->
-	<div class="dots">
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
+	<div class="dots" id="dots">
+		<span class="dot dot_selected"></span>
+		<span class="dot"></span>
+		<span class="dot"></span>
+		<span class="dot"></span>
 	</div> 
 
 </div>
