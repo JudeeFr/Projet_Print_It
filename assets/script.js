@@ -1,87 +1,87 @@
 const slides = [
 	{
 		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>",
+		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
 		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
 		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>",
+		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
 		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>",
+		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+const banner = document.getElementById('#banner');
+const arrowleft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+const bannerImage = document.querySelector('#banner > img');
+const bannerText = document.querySelector('#banner > p');
 
+const numberOfSlide = slides.length;
+let i = 0;
 
-let dotIndex = 1;
-let dotIndex2 = 0;
-let dotIndex3 = 3;
-
-let imageIndex = 1;
-let imageIndex2 = 3;
-
-let textIndex = 1;
-let textIndex2 = 3;
-
-let dot = document.getElementsByClassName("dot");
-const BannerImage = document.getElementById("banner-img");
-const BannerTagLine= document.getElementById("banner-text");
-
-// // evenement sur la fleche droite
-document.querySelector(".arrow_right").addEventListener("click", function() {		
-	// changement de l'image 		
-	BannerImage.src = "./assets/images/slideshow/"+ slides[imageIndex++].image;	
-	// changement du texte 
-	BannerTagLine.innerHTML = slides[textIndex++].tagLine;	
-	// bullet points		
-	dot[dotIndex++].classList.add("dot_selected");
-	dot[dotIndex2++].classList.remove("dot_selected");
-	// Conditions pour boucle infinie 
-	if (imageIndex >= slides.length) {
-		imageIndex = 0;	
+/* bullet points */ 
+function createDots() {
+	const dots = document.querySelector('.dots');
+	
+	for (let j = 0; j < numberOfSlide; j++) {
+	const dot = document.createElement('span');
+	
+	dot.classList.add('dot');
+	dots.appendChild(dot);
+	
+	if (j == 0) { 
+		dots.children[j].classList.add('dot_selected');
 	}
-	if(textIndex >= slides.length) {
-		textIndex = 0;
+
 	}
-	if(dotIndex >= dot.length) {
-		dotIndex = 0;
+ }
+ createDots();
+
+/* ajout class selected */
+ function dotselected() {
+	const dot = document.getElementsByClassName('dot');
+	for (let i = 0; i < dot.length; i++) {
+		dot[i].classList.remove('dot_selected');
 	}
-	if(dotIndex2 == 4) {
-		dotIndex2 = 0;
+	dot[i].classList.add('dot_selected');
+ }
+
+/* changement images et textes*/
+function slider() {
+	bannerImage.src = `./assets/images/slideshow/${slides[i].image}`;
+	bannerText.innerHTML = slides[i].tagLine;
+	dotselected();
+}
+slider();
+
+/* fleche droite */	
+arrowRight.addEventListener("click", function () {
+	
+	if (i == numberOfSlide - 1) {
+		i = 0;
+	} else {
+			i++;
 	}
+	slider();
+	
 });
 
-
-// 	// evenement sur la fleche gauche
-document.querySelector(".arrow_left").addEventListener("click", function() {	
-	// changement de l'image 	
-	BannerImage.src = "./assets/images/slideshow/"+ slides[imageIndex2--].image;	
-	// changement du texte 	
-	BannerTagLine.innerHTML = slides[textIndex2--].tagLine;	
-	// bullet points		
-	dot[dotIndex3--].classList.add("dot_selected");
-	dot[dotIndex2--].classList.remove("dot_selected");
-	// Conditions pour boucle infinie 
-	if (imageIndex2 < 0) {
-		imageIndex2 = 3;	
-	}	
-	if(textIndex2 < 0) {
-		textIndex2 = 3;
+/* fleche gauche */
+arrowleft.addEventListener("click", function () {
+	
+	if (i == 0) {
+		i = numberOfSlide - 1;
 	}
-	if(dotIndex3 < 0) {
-		dotIndex3 = 3;
+	else {
+		i--;
 	}
-	if(dotIndex2 < 0) {
-		dotIndex2 = 3;
-	}
-})
-
-
-
-
+	slider();
+	
+});
 

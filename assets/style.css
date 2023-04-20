@@ -53,9 +53,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
 
-}
 section {
 	margin-block: 6em;
 }
@@ -103,9 +101,7 @@ header {
 .devis {
 	background-color: var(--secondary-color);
 }
-#slides-container {
-	position: relative;
-}
+
 #banner {
 	display: flex;
 	flex-direction: column;
@@ -115,35 +111,39 @@ header {
 	min-height: 470px;
 	position: relative;
 }
-#banner-img {
+#banner img {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
 	object-fit: cover;
 	object-position: center;
+	z-index: -1;
 }
-
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
-.arrow {
-	display: flex;
+#banner .arrow {
 	position: absolute;
-	width: 100%;
-	justify-content: space-between;
+}
+#banner .arrow_left {
+	left: 10px;
+	width: 50px;
+	height: 85px;
+	z-index: 1;
 	cursor: pointer;
-	top: 50%;
-	width: 100%;
-	padding: 0 10px;
+}
+#banner .arrow_right {
+	right: 10px;
+	width: 50px;
+	height: 85px;
+	z-index: 1;
+	cursor: pointer;
 }
 
-/* Gestion des points du carroussel */
+/* Gestion des points du carrousel */
 .dots {
 	position: absolute;
 	bottom: 40px;
 	display: flex;
-	justify-content: center;
-	width: 100%;
 }
 .dot {
 	margin-inline: 5px;
@@ -152,7 +152,8 @@ header {
 	background-color: #ffffff00;
 	border: 3px solid #fff;
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
 }
 .dot_selected {
 	background-color: #fff;
@@ -172,16 +173,6 @@ header {
 	font-weight: 400;
 	font-size: 30px;
 }
-/* Fading animation */
-.fade {
-	animation-name: fade;
-	animation-duration: 1.5s;
-  }
-  
-  @keyframes fade {
-	from {opacity: .4}
-	to {opacity: 1}
-  }
 #about-us {
 	display: flex;
 }
